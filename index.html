@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+    <link rel="stylesheet" href="css/themes/custom-themes-event-app.min.css">
+    <link rel="stylesheet" href="css/core-styles.css">
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+    <!--Page ONE-->
+    <div data-role="page" id="home">
+        <div data-role="header" data-theme="b">
+            <div style="float: left; position: relative; top:5px; left:10px;">
+                <a href="#"><img alt="Logo" src="images/logo.png"/></a>
+            </div>
+            <h1>Event App</h1>
+        </div>
+
+        <div data-role="content" style="background: #000000 url('images/img-bg4.jpg'); -webkit-background-size: 100% auto;" >
+            <div class="alpha85">
+                <input type="text" placeholder="Enter username" />
+                <input type="password" placeholder="Enter Password" />
+                <button type="submit"  data-theme="b">Login</button>
+            </div>
+            <br/>
+            <div class="bg-box-white alpha9">
+                <p><strong>Not a member yet?</strong></p>
+                <a href="#user_signup" data-role="button" data-icon="arrow-r" data-iconpos="right">Sign Up</a>
+            </div>
+        </div>
+
+        <div data-role="footer" data-theme="b">
+            <h1>LN Cret Dev</h1>
+        </div>
+    </div>
+    <!--Page ONE end-->
+
+    <!--Page ONE-->
+    <div data-role="page" id="welcome">
+        <div data-role="header" data-theme="b">
+            <div style="float: left; position: relative; top:5px; left:10px;">
+                <a href="#welcome"><img alt="Logo" src="images/logo.png"/></a>
+            </div>
+            <h1>Event App</h1>
+        </div>
+
+        <div data-role="content" style="background: #000000 url('images/img-bg4.jpg'); -webkit-background-size: 100% auto;">
+            <h2>Welcome <span style="color: darkorange;">Matthew</span></h2>
+            <br/>
+            <div class="bg-box-white alpha9" data-inset="true">
+                <p><strong>Event Section</strong></p>
+                <a href="#eventlist" data-role="button" data-icon="arrow-r" data-theme="b" data-iconpos="right">See Events</a>
+                <a href="#newevent" data-role="button" data-icon="arrow-r" data-theme="b" data-iconpos="right">Add Event</a>
+                <a href="#userlist" data-role="button" data-icon="arrow-r" data-theme="a" data-iconpos="right">See Users</a>
+            </div>
+        </div>
+
+        <div data-role="footer" data-theme="b">
+            <h1>LN Cret Dev</h1>
+        </div>
+    </div>
+    <!--Page ONE end-->
+
+    <!--Page TWO-->
+    <div data-role="page" id="user_signup">
+        <div data-role="header" data-theme="b">
+            <div style="float: left; position: relative; top:5px; left:10px;"><a href="#welcome"><img alt="Logo" src="images/logo.png"/></a></div><h1>Event App</h1>
+        </div>
+
+        <div data-role="content">
+            <h2>Insert Data</h2>
+            <form id="formAddUser" method="post" action="#">
+                <fieldset data-role="controlgroup">
+                    <label for="fname">First Name</label>
+                    <input id="fname" type="text" placeholder="Enter First Name" name="fname"/>
+
+                    <label for="lname">Last Name</label>
+                    <input id="lname" type="text" placeholder="Enter Last Name" name="lname"/>
+
+                    <label for="email">Email</label>
+                    <input id="email" type="text" placeholder="Enter Email" name="email"/>
+
+                    <label for="phone">Phone Number</label>
+                    <input id="phone" type="text" placeholder="Enter Phone Number" name="phone"/>
+
+                    <label for="username">Username</label>
+                    <input id="username" type="text" placeholder="Enter Username" name="username"/>
+
+                    <label for="password">Password</label>
+                    <input id="password" type="password" placeholder="Enter Password" name="password"/>
+
+                    <label for="conf_password">Confirm Password</label>
+                    <input id="conf_password" type="password" placeholder="Confirm Password" name="conf_password"/>
+
+                    <label for="terms">Terms &amp; Conditions</label>
+                    <input id="terms" type="checkbox" name="terms"/>
+                </fieldset>
+
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                    <button id="btnSubmit" data-theme="b" type="submit">Submit</button>
+                    <button id="btnReset" data-theme="b" type="reset">Reset</button>
+                </fieldset>
+            </form>
+            <a href="#eventlist" data-role="button" data-icon="arrow-r" data-iconpos="right">Events</a>
+            <a data-role="button" data-mini="true" data-rel="back" data-theme="a" data-icon="back" data-shadow="false" data-iconpos="right" >Back</a>
+        </div>
+
+        <div data-role="footer" data-theme="b">
+            <h1>LN Cret Dev</h1>
+        </div>
+    </div>
+
+    <!--Page TWO end-->
+    <div data-role="page" id="newevent">
+        <div data-role="header" data-theme="b">
+            <div style="float: left; position: relative; top:5px; left:10px;"><a href="#welcome"><img alt="Logo" src="images/logo.png"/></a></div><h1>Event App</h1>
+        </div>
+
+        <div data-role="content">
+            <h2>New Event's Details</h2>
+            <form id="addEventForm" method="post" action="#">
+                <label for="evtName">Event Name</label>
+                <input id="evtName" type="text" placeholder="Enter Event Name" name="evtName"/>
+                <label for="evtInfo">Event Description</label>
+                <textarea id="evtInfo" placeholder="Enter what Event is about" name="evtInfo"></textarea>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Start Date</legend>
+                        <label for="evtStartDay">Day</label>
+                        <select id="evtStartDay" name="evtStartDay">
+                            <option>Day</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                        </select>
+                        <label for="evtStartMonth">Month</label>
+                        <select id="evtStartMonth" name="evtStartMonth">
+                            <option>Month</option>
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+                        </select>
+                        <label for="evtStartYear">Year</label>
+                        <select id="evtStartYear" name="evtStartYear">
+                            <option>Year</option>
+                            <option>2013</option>
+                            <option>2014</option>
+                            <option>2015</option>
+                            <option>2016</option>
+                            <option>2017</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>Start Time (h)</legend>
+                        <label for="evtStartHours">Hours</label>
+                        <select id="evtStartHours" name="evtStartHours">
+                            <option> 0</option>
+                            <option> 1</option>
+                            <option> 2</option>
+                            <option> 3</option>
+                            <option> 4</option>
+                            <option> 5</option>
+                            <option> 6</option>
+                            <option> 7</option>
+                            <option> 8</option>
+                            <option> 9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                        </select>
+                        <label for="evtStartMinutes">Minutes</label>
+                        <select id="evtStartMinutes" name="evtStartMinutes">
+                            <option>00</option>
+                            <option>05</option>
+                            <option>10</option>
+                            <option>15</option>
+                            <option>20</option>
+                            <option>25</option>
+                            <option>30</option>
+                            <option>35</option>
+                            <option>40</option>
+                            <option>45</option>
+                            <option>50</option>
+                            <option>55</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>End Date</legend>
+                        <label for="evtEndDay">Day</label>
+                        <select id="evtEndDay" name="evtEndDay">
+                            <option>Day</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                        </select>
+                        <label for="evtEndMonth">Month</label>
+                        <select id="evtEndMonth" name="evtEndMonth">
+                            <option>Month</option>
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                            <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                            <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+                        </select>
+                        <label for="evtEndYear">Year</label>
+                        <select id="evtEndYear" name="evtEndYear">
+                            <option>Year</option>
+                            <option>2013</option>
+                            <option>2014</option>
+                            <option>2015</option>
+                            <option>2016</option>
+                            <option>2017</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend>End Time (h)</legend>
+                        <label for="evtEndHours">Hours</label>
+                        <select id="evtEndHours" name="evtEndHours">
+                            <option> 0</option>
+                            <option> 1</option>
+                            <option> 2</option>
+                            <option> 3</option>
+                            <option> 4</option>
+                            <option> 5</option>
+                            <option> 6</option>
+                            <option> 7</option>
+                            <option> 8</option>
+                            <option> 9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                        </select>
+                        <label for="evtEndMinutes">Minutes</label>
+                        <select id="evtEndMinutes" name="evtEndMinutes">
+                            <option>00</option>
+                            <option>05</option>
+                            <option>10</option>
+                            <option>15</option>
+                            <option>20</option>
+                            <option>25</option>
+                            <option>30</option>
+                            <option>35</option>
+                            <option>40</option>
+                            <option>45</option>
+                            <option>50</option>
+                            <option>55</option>
+                        </select>
+                    </fieldset>
+                </div>
+                <h3>Event Address</h3>
+                <label for="evtStreet">Street</label>
+                <input id="evtStreet" type="text" placeholder="Street and Number" name="evtStreet"/>
+                <label for="evtCity">City</label>
+                <input id="evtCity" type="text" placeholder="City" name="evtCity"/>
+                <label for="evtPostCode">Postcode</label>
+                <input id="evtPostCode" type="text" placeholder="Postcode" name="evtPostCode"/>
+                <label for="evtCountry">Country</label>
+                <input id="evtCountry" type="text" placeholder="Country" name="evtCountry"/>
+                <h3>Event Contact Details</h3>
+                <label for="evtSite">Website</label>
+                <input id="evtSite" type="text" placeholder="Official Website" name="evtSite"/>
+                <label for="evtPhone">Phone Number</label>
+                <input id="evtPhone" type="text" placeholder="Phone Number" name="evtPhone"/>
+
+                <div data-role="controlgroup" data-type="horizontal" style="margin:0 auto;">
+                    <button type="submit" data-theme="b" data-shadow="false">Send</button>
+                    <button type="reset" data-theme="b" data-shadow="false">Reset</button>
+                </div>
+                <a href="#eventlist" data-role="button" data-icon="arrow-r" data-iconpos="right">Events</a>
+                <a data-role="button" data-mini="true" data-rel="back" data-theme="a" data-icon="back" data-shadow="false" data-iconpos="right" >Back</a>
+            </form>
+        </div>
+
+        <div data-role="footer" data-theme="b">
+            <h1>LN Cret Dev</h1>
+        </div>
+    </div>
+    <!--Page TWO end-->
+    <div data-role="page" id="eventlist">
+        <div data-role="header" data-theme="b">
+            <div style="float: left; position: relative; top:5px; left:10px;">
+                <a href="#welcome"><img alt="Logo" src="images/logo.png"/></a>
+            </div>
+            <h1>Event App</h1>
+        </div>
+
+        <div data-role="content">
+            <div class="bg-box-white alpha9">
+                <h2>Events</h2>
+                <div data-role="collapsible-set" class="txtwrapper">
+
+                    <div data-role="collapsible" data-inset="true" data-theme="b">
+                        <h3>Christmas Dinner <span class="ui-li-count">25</span></h3>
+
+                        <ul data-role="listview">
+                            <li data-role="list-divider" data-theme="b">Friday, 19th December 2013</li>
+                            <li>
+                                <a href="#">
+                                    <h5>Information</h5>
+                                    <p style="text-size:2em!important;" class="ui-li-desc">Please make sure you arrive in time and dress smartly. Price is up to 4£0 per head</p>
+                                    <h5>Event Duration</h5>
+                                    <p class="ui-li-desc">From <strong>18:00h</strong> to <strong>23:00h</strong> </p>
+                                    <h5>Address</h5>
+                                    <p class="ui-li-desc">23 Soso Street, London, N4 23D</p>
+                                    <h5>Contact Details</h5>
+                                    <p class="ui-li-desc"><strong>Tel: </strong>http://www.test.this.co.uk</p>
+                                    <h5>Attendees</h5>
+                                    <p>
+                                       Lionel, Jhanine, James, Sam
+                                    </p>
+                                    <h5>Organiser Details</h5>
+                                    <p>
+                                      <strong>Name: </strong>Lloyd,
+                                      <strong>Tel: </strong>075 0000 0000
+                                      <strong>Email: </strong>user.name@email.com
+                                    </p>
+                                    <br/>
+                                    <p style="font-size:.85em">
+                                        <strong>edit | delete</strong>
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div data-role="collapsible" data-theme="b">
+                        <h3>GoKarting</h3>
+                        <p>I'm the collapsible set content for section 2.</p>
+                    </div>
+
+                    <a href="#newevent" data-role="button" data-icon="plus" data-mini="true" data-theme="a" data-shadow="false" data-iconpos="right">Add</a>
+
+                    <div data-role="controlgroup" data-type="horizontal">
+                        <a data-role="button" data-mini="true" data-rel="back" data-theme="a" data-icon="back" data-shadow="false" data-iconpos="right" >Back</a>
+                        <a data-role="button" data-mini="true" href="#userlist" data-theme="a"  data-icon="arrow-r" data-shadow="false" data-iconpos="right">Users</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="footer" data-theme="b">
+            <h1>LN Cret Dev</h1>
+        </div>
+    </div>
+    <!--Page THREE Single Event-->
+
+    <!--Page User Page-->
+    <div data-role="page" id="userlist">
+
+        <div data-role="header" data-theme="b">
+            <div style="float: left; position: relative; top:5px; left:10px;">
+                <a href="#welcome"><img alt="Logo" src="images/logo.png"/></a>
+            </div>
+            <h1>Event App</h1>
+        </div>
+
+        <div data-role="content">
+            <div class="bg-box-white alpha9" data-inset="true">
+                <h3>Users</h3>
+                <div data-role="collapsible-set" class="txtwrapper">
+
+                    <div data-role="collapsible" data-collapsed="false" data-theme="a">
+                        <h3>Lloyd Ntim <span class="ui-li-count">0</span></h3>
+                        <ul data-role="listview">
+                            <li >
+                                <a href="#">
+                                    <h5>Phone</h5>
+                                    <p>077 0000 0000</p>
+                                    <h5>Email</h5>
+                                    <p class="ui-li-desc">user.one@email.com</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div data-role="collapsible" data-collapsed="false" data-theme="a">
+                        <h3>Sam Layne<span class="ui-li-count">2</span></h3>
+                        <ul data-role="listview">
+                            <li >
+                                <a href="#">
+                                    <h5>Phone</h5>
+                                    <p>077 0000 0000</p>
+                                    <h5>Email</h5>
+                                    <p class="ui-li-desc">user.one@email.com</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="#eventlist" data-role="button" data-theme="b" data-shadow="false" data-icon="arrow-r" data-iconpos="right">Events</a>
+                <a data-role="button" data-mini="true" data-rel="back" data-theme="a" data-icon="back" data-shadow="false" data-iconpos="right" >Back</a>
+            </div>
+
+        </div>
+
+        <div data-role="footer" data-theme="b">
+            <h1>LN Cret Dev</h1>
+        </div>
+    </div>
+    <!--Page THREE Single Event-->
+</body>
+</html>
